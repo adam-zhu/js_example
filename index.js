@@ -12,19 +12,20 @@ const data = [{
   date: 1
 }];
 
+// if order is not explicity 'desc' then it will be asc
 const create_sort = prop => order => (a, b) => {
   const a_val = a[prop];
   const b_val = b[prop];
 
   if (a_val > b_val) {
-    return order === 'asc'
-    ? 1
-    : -1;
-  }
-  else if (a_val < b_val) {
-    return order === 'asc'
+    return order === 'desc'
     ? -1
     : 1;
+  }
+  else if (a_val < b_val) {
+    return order === 'desc'
+    ? 1
+    : -1;
   }
 
   return 0;
